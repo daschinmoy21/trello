@@ -33,7 +33,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/run/media/crimxnhaze/new/CODE/DBMS-project/backend/venv"
+set -gx VIRTUAL_ENV "/run/media/crimxnhaze/new/CODE/github/test/trello-main/backend/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
