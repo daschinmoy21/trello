@@ -36,15 +36,7 @@ This project is a Trello-like application with the following features:
 
 3. Build and start the Docker containers:
    ```
-<<<<<<< HEAD
-   sudo docker-compose up --build
-   ```
-   or if you're using Docker Compose V2:
-   ```
-   sudo docker compose up --build
-=======
    docker-compose up --build
->>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
    ```
 
 4. The application will be available at:
@@ -58,11 +50,7 @@ To run the application in development mode:
 
 1. Start the containers:
    ```
-<<<<<<< HEAD
-   sudo docker-compose up
-=======
    docker-compose up
->>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
    ```
 
 2. The frontend and backend will automatically reload when you make changes to the code.
@@ -73,50 +61,36 @@ To run tests:
 
 1. For the backend:
    ```
-<<<<<<< HEAD
-   sudo docker-compose run backend pytest
-=======
    docker-compose run backend pytest
->>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
    ```
 
 2. For the frontend:
    ```
-<<<<<<< HEAD
-   sudo docker-compose run frontend npm test
-=======
    docker-compose run frontend npm test
->>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
    ```
 
 ## Troubleshooting
 
 - If you encounter any issues, try stopping the containers and rebuilding:
   ```
-<<<<<<< HEAD
-  sudo docker-compose down
-  sudo docker-compose up --build
-=======
   docker-compose down
   docker-compose up --build
->>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
   ```
 
 - To view logs:
   ```
-<<<<<<< HEAD
-  sudo docker-compose logs
+  docker-compose logs
   ```
 
 - If `docker-compose` command is not recognized, try using:
   ```
-  sudo docker compose up --build
+  docker compose up --build
   ```
 
 - Ensure Docker and Docker Compose are properly installed:
   ```
   docker --version
-  docker-compose --version
+  docker compose version
   ```
 
 - If you see an error like "Cannot connect to the Docker daemon", make sure the Docker daemon is running:
@@ -138,11 +112,10 @@ To run tests:
 
 - If you encounter an error during the build process, particularly with the frontend container, try the following:
 
-  1. Ensure you have the correct version of Node.js installed (this project uses Node.js 14):
+  1. Ensure you have the correct version of Node.js installed (check the version in the frontend Dockerfile):
      ```
      node --version
      ```
-     If it's not version 14, consider using a Node version manager like nvm to install and use the correct version.
 
   2. Clean your npm cache:
      ```
@@ -162,24 +135,12 @@ To run tests:
      npm run build
      ```
 
-- The warning about the `version` attribute being obsolete in the docker-compose.yml file can be resolved by removing the `version` line from your docker-compose.yml file. This won't affect functionality. To do this:
-
-  1. Open the docker-compose.yml file in a text editor.
-  2. Look for a line at the top that says something like `version: '3'` or `version: '3.8'`.
-  3. Remove this line entirely.
-  4. Save the file and try running `docker compose up --build` again.
-
 - If you're still encountering issues, please check the logs of the frontend container:
   ```
-  sudo docker compose logs frontend
+  docker-compose logs frontend
   ```
   This may provide more detailed information about what's going wrong during the build process.
 
-=======
-  docker-compose logs
-  ```
-
->>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
 ## Contributing
 
 1. Fork the repository
