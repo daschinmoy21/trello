@@ -36,11 +36,15 @@ This project is a Trello-like application with the following features:
 
 3. Build and start the Docker containers:
    ```
+<<<<<<< HEAD
    sudo docker-compose up --build
    ```
    or if you're using Docker Compose V2:
    ```
    sudo docker compose up --build
+=======
+   docker-compose up --build
+>>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
    ```
 
 4. The application will be available at:
@@ -54,7 +58,11 @@ To run the application in development mode:
 
 1. Start the containers:
    ```
+<<<<<<< HEAD
    sudo docker-compose up
+=======
+   docker-compose up
+>>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
    ```
 
 2. The frontend and backend will automatically reload when you make changes to the code.
@@ -65,24 +73,38 @@ To run tests:
 
 1. For the backend:
    ```
+<<<<<<< HEAD
    sudo docker-compose run backend pytest
+=======
+   docker-compose run backend pytest
+>>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
    ```
 
 2. For the frontend:
    ```
+<<<<<<< HEAD
    sudo docker-compose run frontend npm test
+=======
+   docker-compose run frontend npm test
+>>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
    ```
 
 ## Troubleshooting
 
 - If you encounter any issues, try stopping the containers and rebuilding:
   ```
+<<<<<<< HEAD
   sudo docker-compose down
   sudo docker-compose up --build
+=======
+  docker-compose down
+  docker-compose up --build
+>>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
   ```
 
 - To view logs:
   ```
+<<<<<<< HEAD
   sudo docker-compose logs
   ```
 
@@ -153,6 +175,11 @@ To run tests:
   ```
   This may provide more detailed information about what's going wrong during the build process.
 
+=======
+  docker-compose logs
+  ```
+
+>>>>>>> b6c4b9948c9471ce38458c7cbe7f100d895bfcc3
 ## Contributing
 
 1. Fork the repository
