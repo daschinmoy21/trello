@@ -12,103 +12,84 @@ This project is a Trello-like application with the following features:
 - Backend: Python with FastAPI
 - Frontend: React
 - Real-time updates: WebSockets (Socket.IO)
+- Containerization: Docker
 
-## Project Structure
-- `/backend`: Python FastAPI server
-- `/frontend`: React application
-- `/database`: SQL scripts for database setup
+## Prerequisites
+- Docker
+- Docker Compose
 
 ## Setup Instructions
 
-### Database Setup
-1. Install PostgreSQL if not already installed.
-2. Create a new database for the project.
-3. Run the SQL commands from `database/schema.sql` to set up your tables.
-
-### Backend Setup
-1. Navigate to the backend directory: `cd backend`
-2. Create a virtual environment: `python -m venv venv`
-3. Activate the virtual environment:
-   - Windows: `venv\Scripts\activate`
-   - macOS/Linux: `source venv/bin/activate`
-4. Install required packages: `pip install fastapi sqlalchemy passlib python-jose pydantic psycopg2-binary uvicorn python-socketio`
-5. Update the database connection string in `main.py`:
-   ```python
-   SQLALCHEMY_DATABASE_URL = "postgresql://username:password@localhost/dbname"
+1. Clone the repository:
    ```
-6. Run the backend server: `uvicorn main:app --reload`
-
-### Frontend Setup
-1. Navigate to the frontend directory: `cd frontend`
-2. Install dependencies: `npm install`
-3. Install additional required packages:
+   git clone https://github.com/your-username/trello-clone.git
+   cd trello-clone
    ```
-   npm install react-router-dom @material-ui/core @material-ui/icons react-beautiful-dnd socket.io-client
+
+2. Create a `.env` file in the project root with the following content:
    ```
-4. Start the React development server: `npm start`
-
-## Running the Application
-1. Ensure the database is running and properly set up.
-2. Start the backend server (from the `/backend` directory):
+   POSTGRES_DB=trello_test
+   POSTGRES_USER=postgres
+   POSTGRES_PASSWORD=demos
+   REACT_APP_BACKEND_URL=http://localhost:8000
    ```
-   uvicorn main:app --reload
+
+3. Build and start the Docker containers:
    ```
-3. In a separate terminal, start the frontend development server (from the `/frontend` directory):
+   docker-compose up --build
    ```
-   npm start
+
+4. The application will be available at:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:8000
+   - API Documentation: http://localhost:8000/docs
+
+## Development
+
+To run the application in development mode:
+
+1. Start the containers:
    ```
-4. Access the application at `http://localhost:3000`
+   docker-compose up
+   ```
 
-## What Remains to be Implemented
+2. The frontend and backend will automatically reload when you make changes to the code.
 
-1. Backend API:
-   - Implement all necessary API endpoints (user authentication, board management, card operations, chat functionality).
-   - Set up WebSocket server for real-time updates.
-   - Implement proper error handling and input validation.
+## Testing
 
-2. Database:
-   - Finalize and optimize the database schema if needed.
-   - Implement database migrations for easier schema updates.
+To run tests:
 
-3. Frontend:
-   - Create the Register component for user registration.
-   - Implement proper error handling and loading states.
-   - Add more detailed styling and responsive design.
-   - Implement logout functionality.
+1. For the backend:
+   ```
+   docker-compose run backend pytest
+   ```
 
-4. Authentication:
-   - Implement JWT token refresh mechanism.
-   - Add password hashing on the backend.
-   - Implement proper session management.
+2. For the frontend:
+   ```
+   docker-compose run frontend npm test
+   ```
 
-5. Security:
-   - Implement CSRF protection.
-   - Set up CORS properly.
-   - Secure WebSocket connections.
+## Troubleshooting
 
-6. Testing:
-   - Write unit tests for both frontend and backend components.
-   - Implement integration tests.
+- If you encounter any issues, try stopping the containers and rebuilding:
+  ```
+  docker-compose down
+  docker-compose up --build
+  ```
 
-7. Deployment:
-   - Set up production-ready database server.
-   - Configure a production web server (e.g., Nginx) to serve the frontend and proxy requests to the backend.
-   - Implement proper environment variable management for sensitive information.
-
-8. Documentation:
-   - Create API documentation.
-   - Write user guide/documentation.
-
-9. Additional Features:
-   - Implement user roles and permissions.
-   - Add file attachment functionality to cards.
-   - Implement board sharing and collaboration features.
-   - Add search functionality across boards and cards.
-
-Remember to keep your SECRET_KEY secure and not expose it in your code repository. Use environment variables for sensitive information in a production environment.
+- To view logs:
+  ```
+  docker-compose logs
+  ```
 
 ## Contributing
-(Add contribution guidelines here)
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
-(Add license information here)
+
+This project is licensed under the MIT License - see the LICENSE file for details.
